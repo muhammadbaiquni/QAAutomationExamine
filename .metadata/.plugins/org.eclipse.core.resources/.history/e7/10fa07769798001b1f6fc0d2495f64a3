@@ -1,0 +1,61 @@
+package com.jakartalabs.fullstack_answer;
+
+import org.testng.annotations.*;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
+import static org.testng.Assert.assertEquals;
+
+import com.jakartalabs.baseapi.*;
+import com.jakartalabs.utils.APIActions;
+
+public class TestAPI extends BaseAPITest {
+	
+	String authtoken = "token not found";
+	
+	@Test(priority = 1)
+	public void testRegisterAPI() {
+		String registerPayload = "{\"user\":{\"first_name\":\"Test\",\"last_name\":\"\",\"email\":\"test210413@gmail.com\",\"password\":\"test123\",\"phone_number\":\"+62-81260012345\",\"user_type\":\"User\",\"organisation\":\"\"}}";
+		
+		Response registerResponse = RestAssured.given().spec(commonRequestSpec).body(registerPayload).when().
+				post(APIEndpoints.registerAPI);
+		
+		APIActions.verifyAPIResponse(registerResponse);
+		
+		authtoken = APIActions.getResponseDataUsingJsonPath(registerResponse, JsonPaths.authToken);
+		
+		APIActions.verifyAuthToken(authtoken);
+	}
+	
+	@Test(priority = 2)
+	public void testChangeCurrencyAPI() {
+		Response changeCurrencyResponse = RestAssured.given().spec(formRequestSpec).formParam("user[currency_id]", "2").header("authtoken", "G1yyzdovjb-vGBTGhpF-").when().
+				put(APIEndpoints.changeCurrencyAPI);
+		
+		APIActions.verifyAPIResponse(changeCurrencyResponse);
+		
+		String currencyId = APIActions.getResponseDataUsingJsonPath(changeCurrencyResponse, JsonPaths.currency);
+		
+		System.out.println("Currency Id:" + currencyId);
+		
+		assertEquals(currencyId, "2");
+	}
+	
+	@Test(priority = 3)
+	public void testCheckSettingAPI() {
+		
+	}
+	
+	@Test(priority = 4)
+	public void testLogoutAPI() {
+		Response logoutResponse = RestAssured.given().spec(commonRequestSpec).pathParam("authtoken", authtoken).when().
+				delete();
+		
+		APIActions.verifyAPIResponse(logoutResponse);
+		
+		String logoutMessage = APIActions.getResponseDataUsingJsonPath(logoutResponse, JsonPaths.logout);
+		
+		assertEquals(logoutMessage.contains("Logged out successfully"), true);
+	}
+	
+}

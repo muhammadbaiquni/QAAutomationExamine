@@ -1,0 +1,9 @@
+package com.jakartalabs.answer;
+
+public class CheckCharLength {
+
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+	}
+
+}

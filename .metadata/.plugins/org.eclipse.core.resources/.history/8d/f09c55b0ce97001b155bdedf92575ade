@@ -1,0 +1,30 @@
+package com.jakartalabs.utils;
+
+import com.google.gson.*;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+
+import static org.testng.Assert.assertEquals;
+
+public class APIActions {
+	
+	public static void verifyAPIResponse(Response response) {
+		assertEquals(String.valueOf(response.getStatusCode()).startsWith("20"), true);
+	}
+	
+	public static <T> T getResponseDataUsingJsonPath(Response response, String jsonPath) {
+		JsonPath jPath = response.jsonPath();
+		System.out.println(jsonPath + " value is:" + jPath.get(jsonPath));
+
+		return jPath.get(jsonPath);
+	}
+
+	public static JsonObject updateJsonFieldValue(String payload, String jsonField, String value) {
+		JsonObject jsonObject = new JsonParser().parse(payload).getAsJsonObject();
+
+		jsonObject.remove(jsonField);
+		jsonObject.addProperty(jsonField, value);
+		return jsonObject;
+	}
+
+}

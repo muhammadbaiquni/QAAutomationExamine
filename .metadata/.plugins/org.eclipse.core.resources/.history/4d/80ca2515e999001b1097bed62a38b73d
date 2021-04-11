@@ -1,0 +1,5 @@
+package com.jakartalabs.page_objects;
+
+public class Home {
+	public static final String signinButtonXpath = "//div[@class='loginPanel']//button[1]";
+}

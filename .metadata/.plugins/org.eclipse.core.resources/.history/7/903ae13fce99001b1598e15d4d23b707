@@ -1,0 +1,37 @@
+package com.jakartalabs.baseui;
+
+import java.io.*;
+import java.net.*;
+import java.util.*;
+import java.time.*;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+import com.jakartalabs.utils.*;
+import com.jakartalabs.fullstack_answer.*;
+
+public class BaseUITest implements IDriverManager {
+	public ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+	public ThreadLocal<WebDriverWait> explicitWait = new ThreadLocal<>();
+	
+	@Override
+	@BeforeMethod
+	public void setupSystemUnderTest() {
+		
+	}
+	
+	@Override
+	@AfterMethod(alwaysRun = true)
+	public void cleanup(ITestResult result) throws IOException {
+		if(result.getStatus() == ITestResult.FAILURE) {
+			File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		}
+	}
+}

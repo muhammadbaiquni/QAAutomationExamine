@@ -1,0 +1,11 @@
+package com.jakartalabs.page_objects;
+
+public class Dashboard {
+	public static final String nameOnDashboardXpath = "//nav[@id='header']/div/div/div[5]/h3/strong";
+	public static final String typeProjectXpath = "//body/app[@class='eiApp']/div[@id='app-component']/div[@class='wrapper']/div[@class='middlePart']/main/home/div[@class='newHomeSection']/div[@id='home-container']/div[@class='displaySection']/app-product-type/div[@class='productTypeSection']/div[@class='productTypeRow']/drag-scroll/div[@class='drag-scroll-content']/div[1]";
+	public static final String typeTemplateXpath = "//body/app[@class='eiApp']/div[@id='app-component']/div[@class='wrapper']/div[@class='middlePart']/main/home/div[@class='newHomeSection']/div[@id='home-container']/div[@class='displaySection']/app-app-list/div[@class='appListSection']/div[@class='appListRow withlock']/div[1]";
+	public static final String getStartedXpath = "//div[@id='app-component']/div/div[3]/app-bottom-bar/div/div[3]/div";
+	public static final String skipAfterSelectProjectXpath = "//div[@class='totorialBox step6 active']//span[contains(text(),'SKIP')]";
+	public static final String maxPriceCss = "div[class='maxpriceBox'] h3 strong";
+	public static final String planDeliveryButtonXpath = "//button[normalize-space()='Plan Delivery']";
+}

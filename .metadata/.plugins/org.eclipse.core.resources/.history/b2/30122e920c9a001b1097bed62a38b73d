@@ -1,0 +1,8 @@
+package com.jakartalabs.page_objects;
+
+public class Dashboard {
+	public static final String nameOnDashboardXpath = "//nav[@id='header']/div/div/div[5]/h3/strong";
+	public static final String typeProjectXpath = "//body/app[@class='eiApp']/div[@id='app-component']/div[@class='wrapper']/div[@class='middlePart']/main/home/div[@class='newHomeSection']/div[@id='home-container']/div[@class='displaySection']/app-product-type/div[@class='productTypeSection']/div[@class='productTypeRow']/drag-scroll/div[@class='drag-scroll-content']/div[1]";
+	public static final String typeTemplateXpath = "//*[@id=\"home-container\"]/div[2]/app-app-list/div[1]/div[2]/div[1]";
+	public static final String getStartedXpath = "//div[@id='app-component']/div/div[3]/app-bottom-bar/div/div[3]/div";
+}

@@ -1,0 +1,48 @@
+package com.jakartalabs.fullstack_answer;
+
+import static org.testng.Assert.assertEquals;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+import com.jakartalabs.baseui.BaseUITest;
+import com.jakartalabs.page_objects.Dashboard;
+import com.jakartalabs.page_objects.Home;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class TestUI extends BaseUITest {
+	
+	String maxPrice;
+	
+	@Test (priority=1)
+	public void testLoginUI() throws InterruptedException {
+		browserActions.waitRedirect("/welcome");
+		browserActions.clickElementXpath(Home.skipTourXpath);
+		
+		browserActions.waitRedirect("/home");
+		browserActions.clickElementXpath(Home.signinButtonXpath);
+		browserActions.clickElementXpath(Home.loginXpath);
+		
+		browserActions.sendKeysToElementByXpath(Home.usernameXpath, "muhammad.baiquni@infolog.com.sg");
+		browserActions.sendKeysToElementByXpath(Home.passwordXpath, "infolog12345!@#$%");
+		browserActions.clickElementXpath(Home.loginButtonXPath);
+	}
+	
+	@Test (priority=2)
+	public void testSelectProjectUI() throws InterruptedException {
+		Thread.sleep(5000);
+		
+		browserActions.clickElementXpath(Dashboard.typeProjectXpath);
+		browserActions.clickElementXpath(Dashboard.typeTemplateXpath);
+		browserActions.clickElementXpath(Dashboard.getStartedXpath);
+		
+		browserActions.waitRedirect("/features");
+		browserActions.clickableElementXpath(Dashboard.skipAfterSelectProjectXpath);
+		
+		maxPrice = browserActions.getTextOfElementByCSS(Dashboard.maxPriceCss);
+	}
+
+}

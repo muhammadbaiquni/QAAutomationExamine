@@ -1,0 +1,5 @@
+package com.jakartalabs.baseapi;
+
+public abstract class BaseAPITest {
+
+}

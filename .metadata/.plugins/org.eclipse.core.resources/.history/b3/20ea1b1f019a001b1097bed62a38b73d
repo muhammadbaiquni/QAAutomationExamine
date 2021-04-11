@@ -1,0 +1,5 @@
+package com.jakartalabs.page_objects;
+
+public class Dashboard {
+	public static final String nameCss = "div[class='userPanel'] h3 strong";
+}

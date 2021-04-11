@@ -1,0 +1,39 @@
+package com.jakartalabs.fullstack_answer;
+
+import org.testng.annotations.*;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
+import static org.testng.Assert.assertEquals;
+
+import com.jakartalabs.baseapi.*;
+
+public class TestAPI extends BaseAPITest {
+	
+	String authtoken = "token not found";
+	
+	@Test(priority = 1)
+	public void testRegisterAPI() {
+		String registerPayload = "";
+		
+		RestAssured.baseURI = this.baseURI;
+		Response registerResponse = RestAssured.given().spec(commonRequestSpec).body(registerPayload).when().
+				post(APIEndpoints.registerAPI);
+	}
+	
+	@Test
+	public void testChangeCurrencyAPI() {
+		
+	}
+	
+	@Test
+	public void testCheckSettingAPI() {
+		
+	}
+	
+	@Test
+	public void testLogoutAPI() {
+		
+	}
+	
+}

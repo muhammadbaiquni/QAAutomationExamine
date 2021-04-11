@@ -1,0 +1,22 @@
+package com.jakartalabs.fullstack_answer;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+import com.jakartalabs.baseui.BaseUITest;
+import com.jakartalabs.page_objects.Home;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class TestUI extends BaseUITest {
+	@Test
+	public void login() throws InterruptedException {
+		browserActions.waitRedirect("/welcome");
+		browserActions.clickElementByCSS(Home.skipTourCSS);
+		browserActions.clickElementXpath(Home.signinButtonXpath);
+		browserActions.clickElementXpath(Home.loginXpath);
+	}
+
+}

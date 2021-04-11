@@ -1,0 +1,29 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 5, Errors: 0, Skipped: 1, Time elapsed: 13.462 s <<< FAILURE! - in TestSuite
+testRegisterAPI(com.jakartalabs.fullstack_answer.TestAPI)  Time elapsed: 3.021 s  <<< FAILURE!
+java.lang.AssertionError: expected [true] but found [false]
+	at com.jakartalabs.fullstack_answer.TestAPI.testRegisterAPI(TestAPI.java:23)
+
+testChangeCurrencyAPI(com.jakartalabs.fullstack_answer.TestAPI)  Time elapsed: 1.29 s  <<< FAILURE!
+java.lang.AssertionError: expected [true] but found [false]
+	at com.jakartalabs.fullstack_answer.TestAPI.testChangeCurrencyAPI(TestAPI.java:35)
+
+testLogoutAPI(com.jakartalabs.fullstack_answer.TestAPI)  Time elapsed: 1.274 s  <<< FAILURE!
+java.lang.AssertionError: expected [true] but found [false]
+	at com.jakartalabs.fullstack_answer.TestAPI.testLogoutAPI(TestAPI.java:52)
+
+setupSystemUnderTest(com.jakartalabs.fullstack_answer.TestUI)  Time elapsed: 6.396 s  <<< FAILURE!
+org.openqa.selenium.remote.UnreachableBrowserException: 
+Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
+Build info: version: '4.0.0-alpha-7', revision: 'de8579b6d5'
+System info: host: 'DESKTOP-UPSQUGU', ip: '192.168.100.26', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: driver.version: RemoteWebDriver
+Caused by: java.io.UncheckedIOException: java.net.ConnectException: connection timed out: /3.142.218.214:4444
+Caused by: java.net.ConnectException: connection timed out: /3.142.218.214:4444
+Caused by: io.netty.channel.ConnectTimeoutException: connection timed out: /3.142.218.214:4444
+
+cleanup(com.jakartalabs.fullstack_answer.TestUI)  Time elapsed: 0.002 s  <<< FAILURE!
+java.lang.NullPointerException
+

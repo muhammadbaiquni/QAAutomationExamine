@@ -1,0 +1,10 @@
+package com.jakartalabs.fullstack_answer;
+
+public class JsonPaths {
+
+	public static final String RegisterAPI = "";
+	public static final String loginAPI = "/users/sign_in";
+	public static final String dashboardAPI = "/build_cards";
+	public static final String LogoutAPI = "";
+	
+}

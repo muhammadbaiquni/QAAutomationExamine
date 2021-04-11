@@ -1,0 +1,27 @@
+package com.jakartalabs.fullstack_answer;
+
+import org.testng.annotations.*;
+
+public class TestAPI {
+
+	@Test
+	public void RegisterAPI() {
+		
+	}
+	
+	@Test
+	public void ChangeCurrencyAPI() {
+		
+	}
+	
+	@Test
+	public void CheckSettingAPI() {
+		
+	}
+	
+	@Test
+	public void LogoutAPI() {
+		
+	}
+	
+}
